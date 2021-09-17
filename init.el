@@ -11,7 +11,7 @@
  '(helm-minibuffer-history-key "M-p")
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit)))
+   '(json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit)))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -19,7 +19,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(set-frame-font "UbuntuMono Nerd Font-12" nil t)
+(set-frame-font "CodeNewRoman Nerd Font Mono-12" nil t)
 
 
 (setq evil-want-keybinding nil)
@@ -42,19 +42,21 @@
 (require 'helm-mode)
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
-(require 'smooth-scroll)
+;(require 'smooth-scroll)
 ;(require 'sublimity-map)
 (require 'smartparens-config)
+(require 'yasnippet)
 
 
 (smartparens-global-mode 1)
 
+(yas-global-mode 1)
 (global-tree-sitter-mode)
 (global-hl-line-mode +1)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (add-hook 'projectile-after-switch-project-hook 'treemacs-display-current-project-exclusively)
 
-(smooth-scroll-mode t)
+;(smooth-scroll-mode t)
 
 ;(sublimity-mode 1)
 ;(setq sublimity-scroll-weight 10
@@ -69,12 +71,31 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
+
 (treemacs-git-mode 'deferred)
 (helm-projectile-on)
 (evil-collection-init)
 (dashboard-setup-startup-hook)
 (projectile-mode +1)
-(doom-modeline-mode 1)
+(setq doom-modeline-mode 1)
+(setq doom-modeline-height 25)
+(setq doom-modeline-bar-width 1)
+(setq doom-modeline-icon t)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-major-mode-color-icon t)
+(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+(setq doom-modeline-buffer-state-icon t)
+(setq doom-modeline-buffer-modification-icon t)
+(setq doom-modeline-minor-modes nil)
+(setq doom-modeline-enable-word-count nil)
+(setq doom-modeline-buffer-encoding t)
+(setq doom-modeline-indent-info nil)
+(setq doom-modeline-checker-simple-format t)
+(setq doom-modeline-vcs-max-length 12)
+(setq doom-modeline-env-version t)
+(setq doom-modeline-irc-stylize 'identity)
+(setq doom-modeline-github-timer nil)
+(setq doom-modeline-gnus-timer nil)
 (evil-mode 1)
  (show-paren-mode 1)
 (which-key-mode)
