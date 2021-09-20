@@ -15,11 +15,12 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+(all-the-icons-ivy-setup)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(set-frame-font "CodeNewRoman Nerd Font Mono-12" nil t)
+(set-frame-font "UbuntuMono Nerd Font-12" nil t)
 
 
 (setq evil-want-keybinding nil)
@@ -46,6 +47,7 @@
 ;(require 'sublimity-map)
 (require 'smartparens-config)
 (require 'yasnippet)
+(require 'all-the-icons-ivy)
 
 
 (smartparens-global-mode 1)
@@ -157,6 +159,9 @@
 (setq-default python-indent-offset custom-tab-width)
 (setq-default c-basic-offset custom-tab-width)
 (setq-default evil-shift-width custom-tab-width)
+(setq all-the-icons-ivy-file-commands
+      '(counsel-find-file counsel-fzf counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
+
 
 (setq-default electric-indent-inhibit t)
 (setq backward-delete-char-untabify-method 'hungry)
