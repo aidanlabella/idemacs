@@ -11,7 +11,7 @@
  '(helm-minibuffer-history-key "M-p")
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit)))
+   '(json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit org-bullets csharp-mode)))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -48,6 +48,8 @@
 (require 'smartparens-config)
 (require 'yasnippet)
 (require 'all-the-icons-ivy)
+(require 'org-bullets)
+(require 'csharp-mode)
 
 
 (smartparens-global-mode 1)
@@ -57,6 +59,14 @@
 (global-hl-line-mode +1)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (add-hook 'projectile-after-switch-project-hook 'treemacs-display-current-project-exclusively)
+(add-hook 'org-mode-hook (lambda ()  (org-bullets-mode 1)))
+
+(defun my-csharp-mode-hook ()
+    ;; enable the stuff you want for C# here
+      (electric-pair-mode 1)       ;; Emacs 24
+        (electric-pair-local-mode 1) ;; Emacs 25
+	  )
+(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
 
 ;(smooth-scroll-mode t)
 
