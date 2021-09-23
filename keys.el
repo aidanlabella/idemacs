@@ -18,6 +18,7 @@
 
 ;Org-mode
 (define-leader-keys 'org-mode-map-leader "o"
+  "c" '("Org-Check Off" . org-toggle-checkbox)
   "u" 'my-org-cycle-current-headline
   "i" 'org-clock-in
   "o" 'org-clock-out
@@ -27,36 +28,39 @@
 
 ;File managment
 (define-leader-keys 'file-managment "f"
-  "t" 'treemacs
-  "f" 'counsel-fzf
-  "F" 'counsel-find-file
+  "t" '("FileTree (treemacs)" . treemacs)
+  "f" '("FuzzyFinder (fzf)" . counsel-fzf)
+  "c" '("Find or Create New File" . find-file)
+  "F" '("Find File (counsel)" . counsel-find-file)
   )
 
 ;Window managment
 (define-leader-keys 'window-managment "w"
-  "h" 'windmove-left
-  "j" 'windmove-down
-  "k" 'windmove-up
-  "l" 'windmove-right
-  "k" 'delete-window
+  "k" '("Move 1 Window Up" . windmove-up)
+  "j" '("Move 1 Window Down" . windmove-down)
+  "h" '("Move 1 Window Left" . windmove-left)
+  "l" '("Move 1 Window Right" . windmove-right)
+  "c" '("Close Window" . delete-window)
   )
 
 ;Tab managment
 (define-leader-keys 'tab-managment "t"
-  "h" 'centaur-tabs-backward 
-  "l" 'centaur-tabs-forward
-  "c" 'centaur-tabs--kill-this-buffer-dont-ask
+  "h" '("Previous Tab in Column" . centaur-tabs-backward)
+  "l" '("Next Tab in Column" . centaur-tabs-forward)
+  "j" '("Move 1 Tab Row Down" . centaur-tabs-backward-group)
+  "k" '("Move 1 Tab Row Up" . centaur-tabs-forward-group)
+  "c" '("Delete Current Tab" . centaur-tabs--kill-this-buffer-dont-ask)
   )
 
 ;comments
 (define-leader-keys 'commenter "c"
-  "c" 'evilnc-comment-or-uncomment-lines
-  "r" 'comment-or-uncomment-region
+  "c" '("Toggle Comments on Line" . evilnc-comment-or-uncomment-lines)
+  "r" '("Toggle Comments in Region" . comment-or-uncomment-region)
   )
 
 ;Git
 (define-leader-keys 'git-managment "g"
-  "g" 'magit
+  "g" '("Git Control Panel (magit)" . magit)
   "r" 'magit-reflog
   "c" 'magit-commit
   "P" 'magit-pull

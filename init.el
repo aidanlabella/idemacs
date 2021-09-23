@@ -1,65 +1,28 @@
+(load "~/.emacs.d/preferences.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(dracula))
  '(custom-safe-themes
-   '("c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "24714e2cb4a9d6ec1335de295966906474fdb668429549416ed8636196cb1441" default))
+   '("0ab2aa38f12640ecde12e01c4221d24f034807929c1f859cbca444f7b0a98b3a" "c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "24714e2cb4a9d6ec1335de295966906474fdb668429549416ed8636196cb1441" default))
+ '(delete-selection-mode nil)
  '(doom-modeline-github t)
  '(doom-modeline-mode t)
  '(helm-minibuffer-history-key "M-p")
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit org-bullets csharp-mode)))
+   '(undo-tree rainbow-delimiters diff-hl json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit org-bullets csharp-mode)))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(all-the-icons-ivy-setup)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(set-frame-font "UbuntuMono Nerd Font-12" nil t)
+(set-frame-font (concat idemacs-gtk-font "-" idemacs-gtk-font-size) nil t)
 
-
-(setq evil-want-keybinding nil)
-(setq evil-want-C-u-scroll t)
-
-(require 'doom-modeline)
-(require 'treemacs-evil)
-(require 'evil)
-(require 'which-key)
-(require 'centaur-tabs)
-(require 'company)
-(require 'projectile)
-(require 'lsp-mode)
-(require 'lsp-java)
-(require 'git-gutter+)
-(require 'dashboard)
-(require 'org-evil)
-;(require 'jdee)
-(require 'evil-collection)
-(require 'helm-mode)
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
-;(require 'smooth-scroll)
-;(require 'sublimity-map)
-(require 'smartparens-config)
-(require 'yasnippet)
-(require 'all-the-icons-ivy)
-(require 'org-bullets)
-(require 'csharp-mode)
-
-
-(smartparens-global-mode 1)
-
-(yas-global-mode 1)
-(global-tree-sitter-mode)
-(global-hl-line-mode +1)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-(add-hook 'projectile-after-switch-project-hook 'treemacs-display-current-project-exclusively)
-(add-hook 'org-mode-hook (lambda ()  (org-bullets-mode 1)))
+(load "~/.emacs.d/packages.el")
 
 (defun my-csharp-mode-hook ()
     ;; enable the stuff you want for C# here
@@ -79,39 +42,7 @@
 	(define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
 	(define-key helm-map (kbd "C-z") #'helm-select-action))
 
-(add-hook 'java-mode-hook #'lsp)
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
-
-
-(treemacs-git-mode 'deferred)
-(helm-projectile-on)
-(evil-collection-init)
-(dashboard-setup-startup-hook)
-(projectile-mode +1)
-(setq doom-modeline-mode 1)
-(setq doom-modeline-height 25)
-(setq doom-modeline-bar-width 1)
-(setq doom-modeline-icon t)
-(setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-major-mode-color-icon t)
-(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-(setq doom-modeline-buffer-state-icon t)
-(setq doom-modeline-buffer-modification-icon t)
-(setq doom-modeline-minor-modes nil)
-(setq doom-modeline-enable-word-count nil)
-(setq doom-modeline-buffer-encoding t)
-(setq doom-modeline-indent-info nil)
-(setq doom-modeline-checker-simple-format t)
-(setq doom-modeline-vcs-max-length 12)
-(setq doom-modeline-env-version t)
-(setq doom-modeline-irc-stylize 'identity)
-(setq doom-modeline-github-timer nil)
-(setq doom-modeline-gnus-timer nil)
-(evil-mode 1)
- (show-paren-mode 1)
-(which-key-mode)
-(which-key-setup-side-window-bottom)
+(show-paren-mode 1)
 (helm-icons-enable)
 (centaur-tabs-mode t)
 (centaur-tabs-headline-match)
@@ -138,7 +69,6 @@
 
 (global-display-line-numbers-mode)
 
-(global-git-gutter+-mode)
 (setq-default left-margin-width 1)
 (set-window-buffer nil (current-buffer))
 
@@ -156,10 +86,9 @@
 
 (setq projectile-completion-system 'helm)
 
-(centaur-tabs-change-fonts "UbuntuMono Nerd Font Mono" 116)
+(centaur-tabs-change-fonts idemacs-gtk-font 116)
 
 (define-prefix-command 'my-leader-map)
-(evil-define-key 'normal global-map (kbd "SPC") 'my-leader-map)
 
 (setenv "SSH_ASKPASS" "git-gui--askpass")
 
@@ -194,7 +123,6 @@
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
-
 
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.

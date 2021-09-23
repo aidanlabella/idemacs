@@ -1,6 +1,7 @@
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (require 'use-package))
+)
+(require 'use-package)
 
 (use-package json-mode
     :ensure t)
@@ -54,10 +55,10 @@
     :ensure t)
 (use-package evil-collection
     :ensure t)
-(use-package git-gutter+
+(use-package diff-hl
     :ensure t
     :init
-    (global-git-gutter+-mode))
+    (global-diff-hl-mode))
 
 (use-package lsp-java
     :ensure t)
@@ -76,6 +77,7 @@
     (add-hook 'java-mode-hook 'lsp)
     (add-hook 'c-mode-hook 'lsp)
     (add-hook 'c++-mode-hook 'lsp))
+
 (use-package company
     :ensure t
     :init
@@ -83,18 +85,21 @@
     (define-key company-active-map (kbd "<tab>") 'company-select-next)))
 
 (use-package helm-icons
-    :ensure t)
+    :ensure t
+    :init
+    (helm-icons-enable))
+
 (use-package helm
     :ensure t
     :init
-    (helm-projectile-on)
-    (helm-icons-enable))
+    (helm-projectile-on))
 
 (use-package god-mode
     :ensure t)
 (use-package which-key
     :ensure t
     :init
+    (setq which-key-idle-delay 0.2)
     (which-key-mode)
     (which-key-setup-side-window-bottom)
     (load "~/.emacs.d/keys.el")
@@ -106,6 +111,7 @@
     (centaur-tabs-mode t)
     (centaur-tabs-headline-match)
     :config
+    (setq centaur-tabs-cycle-scope 'tabs)
     (setq centaur-tabs-style "bar")
     (setq centaur-tabs-set-bar 'under)
     (setq centaur-tabs-set-icons t)
@@ -192,3 +198,33 @@
     (add-hook 'org-mode-hook (lambda ()  (org-bullets-mode 1))))
 (use-package csharp-mode
     :ensure t)
+
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dracula t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  ;(doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-colors") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+(use-package rainbow-delimiters
+    :ensure t
+    :config
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(use-package undo-tree
+    :ensure t
+    :init
+    (evil-set-undo-system 'undo-tree)
+    (global-undo-tree-mode))
+
