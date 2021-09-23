@@ -93,6 +93,12 @@
   "m" 'exit-minibuffer
   )
 
+;qutting/saving
+(define-leader-keys 'IntelliSense "l"
+  "l" '("Exec. Code Action" . lsp-execute-code-action)
+  "m" '("Find References" . lsp-find-references)
+  )
+
 (global-set-key (kbd "\t") 'company-complete)
 
 (provide 'keys)
