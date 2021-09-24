@@ -1,18 +1,5 @@
 (load "~/.emacs.d/preferences.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("0ab2aa38f12640ecde12e01c4221d24f034807929c1f859cbca444f7b0a98b3a" "c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "24714e2cb4a9d6ec1335de295966906474fdb668429549416ed8636196cb1441" default))
- '(delete-selection-mode nil)
- '(doom-modeline-github t)
- '(doom-modeline-mode t)
- '(helm-minibuffer-history-key "M-p")
- '(inhibit-startup-screen t)
- '(package-selected-packages
-   '(php-mode telega undo-tree rainbow-delimiters diff-hl json-mode unicode-fonts spacemacs-theme org-evil aggressive-indent flycheck lsp-ui helm-company helm-projectile counsel-projectile evil-nerd-commenter counsel ivy-searcher evil-org ivy-fuz dashboard ivy-explorer evil-collection git-gutter+ lsp-java javap-mode projectile lsp-mode company helm-icons helm god-mode which-key centaur-tabs treemacs-all-the-icons all-the-icons-ivy treemacs-evil evil doom-modeline doom dracula-theme gnu-elpa yasnippet tree-sitter tree-sitter-langs ccls smooth-scroll smartparens magit org-bullets csharp-mode)))
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -93,7 +80,16 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'org-mode-hook 'org-indent-mode)
 
+(load "~/.emacs.d/keys.el")
+(require 'keys)
+
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

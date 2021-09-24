@@ -103,12 +103,10 @@
 
 (use-package which-key
     :ensure t
-    :init
+    :config
     (setq which-key-idle-delay 0.2)
     (which-key-mode)
-    (which-key-setup-side-window-bottom)
-    (load "~/.emacs.d/keys.el")
-    (require 'keys))
+    (which-key-setup-side-window-bottom))
 
 (use-package centaur-tabs
     :ensure t
