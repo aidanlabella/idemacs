@@ -167,8 +167,8 @@
     :ensure t)
 (use-package dracula-theme
     :ensure t)
-(use-package gnu-elpa
-    :ensure t)
+;(use-package gnu-elpa
+    ;:ensure t)
 (use-package yasnippet
     :ensure t
     :init

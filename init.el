@@ -93,3 +93,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(delete-selection-mode nil)
+ '(package-selected-packages
+   '(php-mode telega undo-tree rainbow-delimiters doom-themes csharp-mode org-bullets magit smartparens smooth-scroll ccls tree-sitter-langs tree-sitter yasnippet gnu-elpa dracula-theme doom doom-modeline treemacs-evil all-the-icons-ivy treemacs-all-the-icons centaur-tabs which-key god-mode helm-icons javap-mode lsp-java diff-hl evil-collection ivy-explorer dashboard ivy-fuz evil-org ivy-searcher evil-nerd-commenter counsel-projectile helm-projectile helm-company lsp-ui flycheck aggressive-indent org-evil unicode-fonts json-mode use-package)))
