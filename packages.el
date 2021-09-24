@@ -1,6 +1,7 @@
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
 )
+
 (require 'use-package)
 
 (use-package json-mode
@@ -92,10 +93,14 @@
 (use-package helm
     :ensure t
     :init
-    (helm-projectile-on))
+    (helm-projectile-on)
+    (with-eval-after-load 'helm
+	(define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
+	(define-key helm-map (kbd "C-z") #'helm-select-action)))
 
 (use-package god-mode
     :ensure t)
+
 (use-package which-key
     :ensure t
     :init
@@ -111,6 +116,7 @@
     (centaur-tabs-mode t)
     (centaur-tabs-headline-match)
     :config
+    (centaur-tabs-change-fonts idemacs-gtk-font 116)
     (setq centaur-tabs-cycle-scope 'tabs)
     (setq centaur-tabs-style "bar")
     (setq centaur-tabs-set-bar 'under)
@@ -197,7 +203,14 @@
     :config
     (add-hook 'org-mode-hook (lambda ()  (org-bullets-mode 1))))
 (use-package csharp-mode
-    :ensure t)
+    :ensure t
+    :config
+    (defun my-csharp-mode-hook ()
+        ;; enable the stuff you want for C# here
+          (electric-pair-mode 1)       ;; Emacs 24
+            (electric-pair-local-mode 1) ;; Emacs 25
+          )
+    (add-hook 'csharp-mode-hook 'my-csharp-mode-hook))
 
 (use-package doom-themes
   :ensure t
@@ -228,3 +241,11 @@
     (evil-set-undo-system 'undo-tree)
     (global-undo-tree-mode))
 
+(use-package telega
+    :ensure t
+    :load-path  "~/telega.el"
+    :commands (telega)
+    :defer t)
+
+(use-package php-mode
+    :ensure t)
