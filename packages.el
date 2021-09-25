@@ -137,31 +137,12 @@
     :config
     (evil-define-key 'normal global-map (kbd "SPC") 'my-leader-map))
 
-(use-package doom-modeline 
-    :ensure t
-    :init
-     '(doom-modeline-github t)
-     '(doom-modeline-mode t)
+(use-package doom-modeline
+     :ensure t
+     :init (doom-modeline-mode 1)
      :config
-    (setq doom-modeline-mode 1)
-    (setq doom-modeline-height 25)
-    (setq doom-modeline-bar-width 1)
-    (setq doom-modeline-icon t)
-    (setq doom-modeline-major-mode-icon t)
-    (setq doom-modeline-major-mode-color-icon t)
-    (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-    (setq doom-modeline-buffer-state-icon t)
-    (setq doom-modeline-buffer-modification-icon t)
-    (setq doom-modeline-minor-modes nil)
-    (setq doom-modeline-enable-word-count nil)
-    (setq doom-modeline-buffer-encoding t)
-    (setq doom-modeline-indent-info nil)
-    (setq doom-modeline-checker-simple-format t)
-    (setq doom-modeline-vcs-max-length 12)
-    (setq doom-modeline-env-version t)
-    (setq doom-modeline-irc-stylize 'identity)
-    (setq doom-modeline-github-timer nil)
-    (setq doom-modeline-gnus-timer nil))
+     (display-battery-mode 1)
+     (setq doom-modeline-lsp t))
 
 (use-package doom
     :ensure t)
@@ -180,9 +161,8 @@
     (global-hl-line-mode +1)
     :config 
     (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-    (add-hook 'projectile-after-switch-project-hook 'treemacs-display-current-project-exclusively)
+    (add-hook 'projectile-after-switch-project-hook 'treemacs-display-current-project-exclusively))
 
-     )
 (use-package tree-sitter-langs
     :ensure t)
 (use-package ccls
@@ -246,4 +226,7 @@
     :defer t)
 
 (use-package php-mode
+    :ensure t)
+
+(use-package vterm
     :ensure t)
