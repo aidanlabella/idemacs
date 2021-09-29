@@ -24,6 +24,7 @@
   "o" 'org-clock-out
   "t" 'org-babel-tangle
   "a" 'org-agenda
+  "l" 'org-table-align
   )
 
 ;File managment
@@ -50,6 +51,7 @@
   "j" '("Move 1 Tab Row Down" . centaur-tabs-backward-group)
   "k" '("Move 1 Tab Row Up" . centaur-tabs-forward-group)
   "c" '("Delete Current Tab" . centaur-tabs--kill-this-buffer-dont-ask)
+  "d" '("Delete Current Tabs in Group" . centaur-tabs-kill-all-buffers-in-current-group)
   )
 
 ;comments
@@ -97,8 +99,10 @@
 (define-leader-keys 'IntelliSense "l"
   "l" '("Exec. Code Action" . lsp-execute-code-action)
   "m" '("Find References" . lsp-find-references)
+  "r" '("Rename" . lsp-rename)
   )
 
 (global-set-key (kbd "\t") 'company-complete)
+
 
 (provide 'keys)
