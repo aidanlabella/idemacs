@@ -102,6 +102,11 @@
   "r" '("Rename" . lsp-rename)
   )
 
+;qutting/saving
+(define-leader-keys 'Shell "s"
+  "s" '("Open Terminal Below" . shell-pop)
+  )
+
 (global-set-key (kbd "\t") 'company-complete)
 
 

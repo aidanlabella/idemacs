@@ -12,7 +12,8 @@
     (setq evil-want-keybinding nil)
     (setq evil-want-C-u-scroll t)
     (evil-collection-init)
-    (evil-mode 1))
+    (evil-mode 1)
+    (evil-set-initial-state 'pdf-view-mode 'normal))
 
 (use-package unicode-fonts
     :ensure t)
@@ -229,4 +230,7 @@
     :ensure t)
 
 (use-package vterm
+    :ensure t)
+
+(use-package shell-pop
     :ensure t)
