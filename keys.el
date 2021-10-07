@@ -100,11 +100,16 @@
   "l" '("Exec. Code Action" . lsp-execute-code-action)
   "m" '("Find References" . lsp-find-references)
   "r" '("Rename" . lsp-rename)
+  "s" '("Symbols" . lsp-treemacs-symbols)
   )
 
 ;qutting/saving
 (define-leader-keys 'Shell "s"
   "s" '("Open Terminal Below" . shell-pop)
+  )
+
+(define-leader-keys 'Latex "x"
+  "c" '("Build Current File" . lsp-latex-build)
   )
 
 (global-set-key (kbd "\t") 'company-complete)

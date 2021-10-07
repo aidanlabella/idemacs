@@ -13,7 +13,10 @@
     (setq evil-want-C-u-scroll t)
     (evil-collection-init)
     (evil-mode 1)
-    (evil-set-initial-state 'pdf-view-mode 'normal))
+    (evil-set-initial-state 'pdf-view-mode 'normal)
+    :config
+    (evil-ex-define-cmd "W[rite]" 'save-buffer)
+    )
 
 (use-package unicode-fonts
     :ensure t)
@@ -78,7 +81,11 @@
     :config 
     (add-hook 'java-mode-hook 'lsp)
     (add-hook 'c-mode-hook 'lsp)
-    (add-hook 'c++-mode-hook 'lsp))
+    (add-hook 'csharp-mode-hook 'lsp)
+    (add-hook 'javascript-mode-hook 'lsp)
+    (add-hook 'c++-mode-hook 'lsp)
+    (add-hook 'tex-mode-hook 'lsp)
+    (add-hook 'latex-mode-hook 'lsp))
 
 (use-package company
     :ensure t
@@ -170,10 +177,10 @@
     :ensure t)
 (use-package smooth-scroll
     :ensure t)
-(use-package smartparens
-    :ensure t
-    :init 
-    (smartparens-global-mode 1))
+;(use-package smartparens
+    ;:ensure t
+    ;:init 
+    ;(smartparens-global-mode 1))
 
 (use-package magit
     :ensure t)
@@ -234,3 +241,8 @@
 
 (use-package shell-pop
     :ensure t)
+
+(use-package lsp-latex
+     :ensure t
+     :init
+     (setq lsp-latex-texlab-executable "/usr/bin/texlab"))

@@ -88,13 +88,24 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(shell-pop-default-directory "/Users/kyagi/git")
- '(shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
- '(shell-pop-term-shell "/bin/bash")
- '(shell-pop-universal-key "C-t")
- '(shell-pop-window-size 30)
- '(shell-pop-full-span t)
- '(shell-pop-window-position "bottom")
+ '(delete-selection-mode nil)
+ '(helm-minibuffer-history-key "M-p")
+ '(package-selected-packages
+   '(shell-pop vterm php-mode telega undo-tree rainbow-delimiters doom-themes csharp-mode org-bullets magit smartparens smooth-scroll ccls tree-sitter-langs tree-sitter yasnippet dracula-theme doom doom-modeline treemacs-evil all-the-icons-ivy treemacs-all-the-icons centaur-tabs which-key god-mode helm-icons javap-mode lsp-java diff-hl evil-collection ivy-explorer dashboard ivy-fuz evil-org ivy-searcher evil-nerd-commenter counsel-projectile helm-projectile helm-company lsp-ui flycheck aggressive-indent org-evil unicode-fonts json-mode use-package))
  '(shell-pop-autocd-to-working-dir t)
+ '(shell-pop-cleanup-buffer-at-process-exit t)
+ '(shell-pop-full-span t)
  '(shell-pop-restore-window-configuration t)
- '(shell-pop-cleanup-buffer-at-process-exit t))
+ '(shell-pop-shell-type
+   '("vterm" "*vterm*"
+     (lambda nil
+       (vterm shell-pop-term-shell))))
+ '(shell-pop-universal-key "C-t")
+ '(shell-pop-window-position "bottom")
+ '(shell-pop-window-size 30))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
