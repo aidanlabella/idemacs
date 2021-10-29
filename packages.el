@@ -92,6 +92,7 @@
     :ensure t
     :init
     (with-eval-after-load 'company
+    (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
     (define-key company-active-map (kbd "<tab>") 'company-select-next)))
 
 (use-package helm-icons
@@ -144,6 +145,8 @@
     :init
     (treemacs-git-mode 'deferred)
     :config
+    (setq treemacs-indent-guide-style 'line)
+    (setq doom-themes-treemacs-enable-variable-pitch nil)
     (evil-define-key 'normal global-map (kbd "SPC") 'my-leader-map))
 
 (use-package doom-modeline
@@ -212,7 +215,7 @@
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   ;(doom-themes-neotree-config)
   ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-colors") ; use "doom-colors" for less minimal icon theme
+  (setq doom-themes-treemacs-theme "doom-dracula") ; use "doom-colors" for less minimal icon theme
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
