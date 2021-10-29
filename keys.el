@@ -114,5 +114,9 @@
 
 (global-set-key (kbd "\t") 'company-complete)
 
+;Evil-paste/copy
+(global-set-key (kbd "C-S-v") 'evil-paste-after)
+(global-set-key (kbd "C-S-c") 'evil-yank)
+
 
 (provide 'keys)

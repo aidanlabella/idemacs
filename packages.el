@@ -16,6 +16,7 @@
     (evil-set-initial-state 'pdf-view-mode 'normal)
     :config
     (evil-ex-define-cmd "W[rite]" 'save-buffer)
+    (evil-ex-define-cmd "X" 'save-buffers-kill-emacs)
     )
 
 (use-package unicode-fonts
